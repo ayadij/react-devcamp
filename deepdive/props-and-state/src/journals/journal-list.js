@@ -8,8 +8,6 @@ const rawJournalData = [
     { title: 'Post 4', content: 'Post content here.', status: 'published' },    
 ];
 
-
-
 export default class JournalList extends Component {
     constructor(props){
         super();
@@ -22,10 +20,22 @@ export default class JournalList extends Component {
     }
 
     render() {
+        const JournalEntries = this.state.journalData.map(x => {
+            return (
+                <div key={x.title}>
+                    <JournalEntry 
+                        title={x.title}
+                        content={x.content}
+                    />
+                </div>
+            );
+        });
+
+
         return (
             <div>
                 <h2>{this.props.heading}</h2>
-                <JournalEntry title="title" content="content"/>
+                { JournalEntries }
             </div>
         );
     }

@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Props and State Deep Dive</h1>
+          <h1 className="App-title">Props and State</h1>
         </header>
 
 
@@ -18,7 +18,7 @@ class App extends Component {
         <p className="App-intro">
           <JournalList heading ='List 1' />
           <JournalList heading ='List 2' />
-          
+
         </p>
       </div>
     );

@@ -7,5 +7,5 @@ export const JournalEntry = (props) => {
             <p>{props.content}</p>
         </div>
 
-    )
-}
+    );
+};
