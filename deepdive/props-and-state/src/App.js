@@ -16,8 +16,7 @@ class App extends Component {
 
 
         <p className="App-intro">
-          <JournalList heading ='List 1' />
-          <JournalList heading ='List 2' />
+          <JournalList heading ='Here are my posts: ' />
 
         </p>
       </div>
