@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { JournalEntry } from './journal-entry';
 
 const rawJournalData = [
-    { title: 'Post 1', content: 'Post content here.', status: 'draft' },
+    { title: 'Post 1', content: 'Sample post content here.', status: 'draft' },
     { title: 'Post 2', content: 'Post content here.', status: 'published' },
-    { title: 'Post 3', content: 'Post content here.', status: 'published' },
+    { title: 'Post 3', content: 'Sample content placeholder here.', status: 'published' },
     { title: 'Post 4', content: 'Post content here.', status: 'published' },    
 ];
 
