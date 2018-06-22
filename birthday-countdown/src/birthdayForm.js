@@ -13,6 +13,7 @@ class BirthdayForm extends Component {
 
         this.handleChange=this.handleChange.bind(this);
         this.handleGenerate=this.handleGenerate.bind(this);
+        this.renderStuff=this.renderStuff.bind(this);
     }
 
     handleChange(date) {
@@ -27,6 +28,14 @@ class BirthdayForm extends Component {
         })
     }
 
+    renderStuff() {
+        if(this.state.formCompleted) {
+            return ( <h2> showing countdown timer</h2> )
+        } else {
+            return ( <h2> form has not been completed. not showing coundown timer</h2>)
+        }
+    }
+
     render() {
         return (
             <div>
@@ -36,6 +45,9 @@ class BirthdayForm extends Component {
                     onChange={this.handleChange}
                 />
                 <a onClick={this.handleGenerate}>Generate Countdown</a>
+
+                { this.renderStuff() }
+
             </div>
         )
     }
