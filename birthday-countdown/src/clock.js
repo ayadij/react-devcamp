@@ -13,12 +13,18 @@ class Clock extends Component {
         const data = this.state.timeRemaining
         return (
             <div>  
-                <label> DAYS: {data.days} </label>
-                <label> HOURS: {data.hours} </label>
-                <label> MINUTES: {data.minutes} </label>
-                <label> SECONDS: {data.seconds} </label>
+                <div> DAYS {data.days} </div>
+                <div> HRS {data.hours} </div>
+                <div> MINS {data.minutes} </div>
+                <div> SECS {data.seconds} </div>
             </div>
         )
+    }
+    
+    componentDidMount() {
+        this.birthday =  this.props.birthdayFormState.startDate.toString(); //never needs to re-render DOM so no need to be in state
+        alert(this.birthday);
+
     }
 }
 
