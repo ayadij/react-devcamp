@@ -91,3 +91,5 @@ class Clock extends Component {
 }
 
 export default Clock;
+
+//https://rails.devcamp.com/comprehensive-react-development-tutorial/react-project-two-build-birthday-countdown-application/1634
