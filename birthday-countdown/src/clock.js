@@ -16,7 +16,9 @@ class Clock extends Component {
         this.noBirthYear = new Date(this.birthday).getFullYear() != new Date().getFullYear()
     }
 
-
+    componentWillReceiveProps(nextProps) {
+        console.log(`next props: ${JSON.stringify(nextProps)}`)
+    }
     gettimeRemaining(birthday) {
         var bday = new Date(birthday)
         var today = new Date();
