@@ -25,13 +25,15 @@ class Clock extends Component {
             bday.setFullYear(today.getFullYear());
         } else if (birthMonth < currentMonth) {
             bday.setFullYear(today.getFullYear() + 1);
-        } else if(birthMonth == currentMonth) {
+        } else if(birthMonth === currentMonth) {
             const birthDay = bday.getDate();
             const currentDay = today.getDate();
             if(birthDay > currentDay) {
                 bday.setFullYear(today.getFullYear());
             } else if(birthDay < currentDay) {
                 bday.setFullYear(today.getFullYear() + 1);
+            } else if (birthday === currentDay){
+                return 0;
             }
         }
 
@@ -75,16 +77,28 @@ class Clock extends Component {
         const data = this.state.timeRemaining
         return (
             <div>
-                <div>  
-                    <div> DAYS {data.days} </div>
-                    <div> HRS {data.hours} </div>
-                    <div> MINS {data.minutes} </div>
-                    <div> SECS {data.seconds} </div>
-                </div>
+            {
+                data == 0 ?
+                <h1>hbd</h1>
+                :
                 <div>
-                    {<h4>remaining until you are {this.getAge()}</h4>}
+                    <div>  
+                        <div> DAYS {data.days} </div>
+                        <div> HRS {data.hours} </div>
+                        <div> MINS {data.minutes} </div>
+                        <div> SECS {data.seconds} </div>
+                    </div>
+                    <div>
+                        {<h4>remaining until you are {this.getAge()}</h4>}
+                    </div>
                 </div>
+            }
             </div>
+
+
+
+
+            
         );
     } 
 
