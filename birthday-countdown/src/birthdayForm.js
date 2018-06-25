@@ -35,16 +35,10 @@ class BirthdayForm extends Component {
         })
     }
 
-    componentWillUnmount() {
-        clearInterval(this.timer);
-    }
-
     render() {
         return (
             <div>
-                
-                <h1>BirthdayForm Component</h1>
-
+                <h1>Birthday Countdown</h1>
                 {
                     this.state.formCompleted ? 
                         <div>

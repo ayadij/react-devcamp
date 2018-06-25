@@ -11,7 +11,7 @@ class Clock extends Component {
         this.timer = 0
         this.birthday = props.birthdayFormState.startDate.toString();
         this.getTimeRemaining = this.getTimeRemaining.bind(this);
-        this.getAge = this.getAge.bind(this);
+        this.noBirthYear = new Date(this.birthday).getFullYear() != new Date().getFullYear()                                                                            
     }
 
     getTimeRemaining(birthday) {
@@ -25,15 +25,15 @@ class Clock extends Component {
             bday.setFullYear(today.getFullYear());
         } else if (birthMonth < currentMonth) {
             bday.setFullYear(today.getFullYear() + 1);
-        } else if(birthMonth === currentMonth) {
+        } else if(birthMonth == currentMonth) {
             const birthDay = bday.getDate();
             const currentDay = today.getDate();
             if(birthDay > currentDay) {
                 bday.setFullYear(today.getFullYear());
             } else if(birthDay < currentDay) {
                 bday.setFullYear(today.getFullYear() + 1);
-            } else if (birthday === currentDay){
-                return 0;
+            } else if (birthday == currentDay){
+                return 0
             }
         }
 
@@ -63,7 +63,7 @@ class Clock extends Component {
         var yearsOld = Number((daysOld/365).toFixed(0));
 
         return yearsOld
-    }
+    }.bind(this)
 
 
     componentDidMount() {
@@ -73,12 +73,23 @@ class Clock extends Component {
         }, 1000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    renderMessage = function() {
+        if(this.noBirthYear) {
+            return <h4> until your birthday!</h4>
+        }
+        return <h4>remaining until you are {this.getAge()}</h4>
+    }.bind(this)
+
     render(){
         const data = this.state.timeRemaining
         return (
             <div>
             {
-                data == 0 ?
+                this.state.timeRemaining == 0 ?
                 <h1>hbd</h1>
                 :
                 <div>
@@ -89,7 +100,7 @@ class Clock extends Component {
                         <div> SECS {data.seconds} </div>
                     </div>
                     <div>
-                        {<h4>remaining until you are {this.getAge()}</h4>}
+                        {this.renderMessage}
                     </div>
                 </div>
             }
